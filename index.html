@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy's Restaurant · Chinese &amp; Thai · Wootton Road, King's Lynn</title>
+<meta name="description" content="Amy's Restaurant and Take-a-Way. Chinese and Thai dishes on Wootton Road in King's Lynn. Eat in, takeaway, delivery. Open evenings, five 'til nine. Call 01553 766656.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4ECD8;
+    --paper-warm:#E8DAB8;
+    --paper-deep:#D9C690;
+    --oxblood:#5D1A1E;
+    --oxblood-deep:#3D1014;
+    --brass:#C99B3E;
+    --brass-soft:#A6802E;
+    --ink:#1A0F0F;
+    --ink-soft:#3B2A1E;
+    --jade:#5C7C6E;
+    --rule:rgba(26,15,15,.18);
+    --rule-light:rgba(244,236,216,.22);
+    --display:"DM Serif Display", "Cormorant Garamond", Georgia, serif;
+    --sans:"DM Sans", system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:clamp(15px, .55rem + .55vw, 17.5px);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(93,26,30,.06), transparent 45%),
+      radial-gradient(circle at 88% 92%, rgba(201,155,62,.07), transparent 50%);
+  }
+  body::after{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    opacity:.05;
+    z-index:1;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.06  0 0 0 0 0.06  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    font-weight:400;
+    letter-spacing:-.012em;
+    line-height:.98;
+    text-wrap:balance;
+  }
+  p{ text-wrap:pretty; hyphens:auto }
+  a{ color:inherit; text-decoration:none }
+
+  /* ── NAV ── */
+  .nav{
+    position:relative; z-index:5;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem;
+    padding:1.1rem clamp(1.25rem, 4vw, 3rem);
+    border-bottom:1px solid var(--rule);
+    flex-wrap:wrap;
+  }
+  .nav__mark{
+    font-family:var(--display);
+    font-size:1.5rem;
+    color:var(--oxblood);
+    letter-spacing:-.01em;
+  }
+  .nav__mark em{
+    font-style:italic;
+    color:var(--brass-soft);
+    font-size:.78em;
+  }
+  .nav__links{
+    display:flex; gap:1.75rem;
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .nav__links a{
+    position:relative;
+    padding:.25rem 0;
+    color:var(--ink-soft);
+    transition:color .25s ease;
+  }
+  .nav__links a::after{
+    content:"";
+    position:absolute; left:0; bottom:0;
+    width:100%; height:1px;
+    background:var(--oxblood);
+    transform:scaleX(0);
+    transform-origin:right center;
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+  }
+  .nav__links a:hover{ color:var(--oxblood) }
+  .nav__links a:hover::after{ transform:scaleX(1); transform-origin:left center }
+  .nav__phone{
+    font-family:var(--display);
+    font-size:1.05rem;
+    color:var(--oxblood);
+    letter-spacing:.02em;
+  }
+  .nav__phone::before{
+    content:"☎";
+    display:inline-block;
+    margin-right:.4rem;
+    color:var(--brass);
+    transform:translateY(-1px);
+  }
+  @media (max-width: 760px){
+    .nav__links{ width:100%; order:3; gap:1.25rem; font-size:.7rem; letter-spacing:.15em }
+  }
+
+  /* ── HERO ── */
+  .hero{
+    position:relative; z-index:2;
+    padding:clamp(2.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+  }
+  .hero__kicker{
+    display:flex; gap:.9rem; align-items:center; flex-wrap:wrap;
+    font-size:.74rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    margin-bottom:2rem;
+  }
+  .hero__kicker .sep{ color:var(--rule); font-weight:400 }
+  .hero__title{
+    font-size:clamp(5rem, 20vw, 18rem);
+    color:var(--oxblood);
+    margin-left:-.04em;
+    line-height:.85;
+    letter-spacing:-.04em;
+  }
+  .hero__title em{
+    display:block;
+    font-style:italic;
+    color:var(--brass-soft);
+    font-size:.32em;
+    margin-top:.4em;
+    margin-left:.1em;
+    letter-spacing:-.01em;
+  }
+  .hero__row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    margin-top:3rem;
+    padding-top:2.5rem;
+    border-top:1px solid var(--rule);
+  }
+  @media (min-width: 760px){
+    .hero__row{ grid-template-columns:1.4fr 1fr; gap:4rem; align-items:start }
+  }
+  .hero__lede{
+    font-size:clamp(1.2rem, 1.6vw + .6rem, 1.55rem);
+    line-height:1.4;
+    color:var(--ink);
+    max-width:38ch;
+    font-weight:400;
+  }
+  .hero__lede strong{
+    color:var(--oxblood);
+    font-weight:500;
+    font-style:italic;
+    font-family:var(--display);
+  }
+  .hero__meta{
+    display:flex; flex-direction:column; gap:1.4rem;
+    padding-top:.4rem;
+  }
+  .hero__meta-block{
+    font-size:.82rem;
+    line-height:1.5;
+  }
+  .hero__meta-block dt{
+    font-size:.7rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    margin-bottom:.4rem;
+  }
+  .hero__meta-block dd{
+    font-family:var(--display);
+    font-size:1.15rem;
+    color:var(--ink);
+    letter-spacing:-.005em;
+  }
+  .hero__meta-block a{
+    color:var(--oxblood);
+    border-bottom:1px solid var(--brass);
+    transition:color .25s ease;
+  }
+  .hero__meta-block a:hover{ color:var(--oxblood-deep) }
+
+  /* ── MARQUEE ── */
+  .marquee{
+    position:relative;
+    background:var(--oxblood);
+    color:var(--paper);
+    border-top:1px solid var(--brass-soft);
+    border-bottom:1px solid var(--brass-soft);
+    overflow:hidden;
+    padding:1.2rem 0;
+    z-index:2;
+  }
+  .marquee__track{
+    display:flex;
+    gap:3.5rem;
+    white-space:nowrap;
+    width:max-content;
+    animation:scroll 38s linear infinite;
+    font-family:var(--display);
+    font-size:1.4rem;
+    letter-spacing:.01em;
+    align-items:center;
+  }
+  .marquee__track span{ display:inline-flex; align-items:center; gap:3.5rem }
+  .marquee__track .dot{ color:var(--brass); font-size:.8em }
+  .marquee__track em{ color:var(--brass); font-style:italic; font-size:.85em }
+  @keyframes scroll { to { transform:translateX(-50%) } }
+
+  /* ── SECTIONS ── */
+  .slab{
+    position:relative; z-index:2;
+    padding:clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+  }
+  .slab--cream{ background:var(--paper) }
+  .slab--paper-warm{ background:var(--paper-warm) }
+  .slab--oxblood{ background:var(--oxblood); color:var(--paper) }
+  .slab--brass{ background:linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 100%) }
+
+  .slab__inner{ max-width:1180px; margin:0 auto }
+
+  .section-head{
+    display:grid;
+    gap:1.5rem;
+    margin-bottom:clamp(2.5rem, 5vw, 4rem);
+  }
+  @media (min-width: 760px){
+    .section-head{ grid-template-columns:auto 1fr; gap:3rem; align-items:end }
+  }
+  .section-head__label{
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    display:flex; align-items:center; gap:1rem;
+  }
+  .section-head__label::before{
+    content:"";
+    width:2.5rem; height:1px;
+    background:var(--brass);
+  }
+  .slab--oxblood .section-head__label{ color:var(--brass) }
+  .slab--oxblood .section-head__label::before{ background:var(--brass) }
+  .section-head__title{
+    font-size:clamp(2.5rem, 6vw + .5rem, 5rem);
+    color:var(--oxblood);
+    letter-spacing:-.025em;
+    line-height:.92;
+  }
+  .slab--oxblood .section-head__title{ color:var(--paper) }
+  .section-head__title em{ font-style:italic; color:var(--brass-soft) }
+  .slab--oxblood .section-head__title em{ color:var(--brass) }
+
+  /* ── REVEAL ── */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(1.8rem) }
+      to   { opacity: 1; transform: translateY(0) }
+    }
+  }
+
+  /* ── ABOUT ── */
+  .about-grid{
+    display:grid; gap:3rem;
+  }
+  @media (min-width: 880px){
+    .about-grid{ grid-template-columns:1.1fr .9fr; gap:5rem; align-items:start }
+  }
+  .about-prose p{
+    font-size:1.15rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+    margin-bottom:1.4rem;
+    max-width:46ch;
+  }
+  .about-prose p:first-of-type::first-letter{
+    font-family:var(--display);
+    font-size:3.8em;
+    float:left;
+    line-height:.85;
+    padding:.05em .15em .05em 0;
+    color:var(--oxblood);
+  }
+  .about-prose p strong{
+    color:var(--oxblood);
+    font-style:italic;
+    font-weight:400;
+    font-family:var(--display);
+  }
+  .about-facts{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:2.2rem;
+    display:grid;
+    gap:1.6rem;
+  }
+  .slab--paper-warm .about-facts{ background:var(--paper) }
+  .about-facts__row{
+    padding-bottom:1.4rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .about-facts__row:last-child{ border-bottom:none; padding-bottom:0 }
+  .about-facts__row dt{
+    font-size:.7rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    margin-bottom:.5rem;
+  }
+  .about-facts__row dd{
+    font-family:var(--display);
+    font-size:1.25rem;
+    color:var(--ink);
+    line-height:1.2;
+  }
+  .about-facts__row dd em{ font-style:italic; color:var(--oxblood) }
+
+  /* ── SERVICES (editorial menu list) ── */
+  .service-list{
+    display:grid; gap:0;
+    border-top:1px solid var(--rule-light);
+  }
+  .slab--oxblood .service-list{ border-color:rgba(244,236,216,.2) }
+  .service-row{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:1.5rem;
+    padding:1.6rem 0;
+    border-bottom:1px solid var(--rule-light);
+    align-items:baseline;
+  }
+  .slab--oxblood .service-row{ border-color:rgba(244,236,216,.2) }
+  @media (max-width: 660px){
+    .service-row{ grid-template-columns:auto 1fr; padding:1.4rem 0 }
+    .service-row__when{ grid-column:1/-1; padding-left:0; padding-top:.4rem }
+  }
+  .service-row__num{
+    font-family:var(--display);
+    font-size:.95rem;
+    color:var(--brass);
+    font-style:italic;
+    padding-top:.2rem;
+    min-width:1.8rem;
+  }
+  .service-row__body{
+    display:flex; flex-direction:column; gap:.4rem;
+  }
+  .service-row__name{
+    font-family:var(--display);
+    font-size:clamp(1.4rem, 2vw + .4rem, 2rem);
+    color:var(--paper);
+    letter-spacing:-.012em;
+    line-height:1.05;
+  }
+  .slab--cream .service-row__name,
+  .slab--paper-warm .service-row__name{ color:var(--oxblood) }
+  .service-row__name em{ font-style:italic; color:var(--brass) }
+  .slab--cream .service-row__name em,
+  .slab--paper-warm .service-row__name em{ color:var(--brass-soft) }
+  .service-row__copy{
+    font-size:.95rem;
+    color:rgba(244,236,216,.78);
+    line-height:1.5;
+    max-width:54ch;
+  }
+  .slab--cream .service-row__copy,
+  .slab--paper-warm .service-row__copy{ color:var(--ink-soft) }
+  .service-row__when{
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    white-space:nowrap;
+    padding-left:1rem;
+    text-align:right;
+  }
+  .slab--cream .service-row__when,
+  .slab--paper-warm .service-row__when{ color:var(--brass-soft) }
+
+  /* ── CONTACT ── */
+  .contact-grid{
+    display:grid; gap:3rem;
+  }
+  @media (min-width: 880px){
+    .contact-grid{ grid-template-columns:1fr 1.3fr; gap:4rem; align-items:start }
+  }
+  .contact-letter{
+    font-family:var(--display);
+    line-height:1.4;
+  }
+  .contact-letter__line{
+    display:block;
+    padding:.45rem 0;
+    border-bottom:1px dashed var(--rule);
+    font-size:1.15rem;
+    color:var(--ink);
+  }
+  .contact-letter__line:last-child{ border-bottom:none }
+  .contact-letter__line .label{
+    display:block;
+    font-family:var(--sans);
+    font-size:.68rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    margin-bottom:.3rem;
+  }
+  .contact-letter__line a{
+    color:var(--oxblood);
+    border-bottom:1px solid var(--brass);
+  }
+  .contact-letter__line a:hover{ color:var(--oxblood-deep) }
+  .contact-hours{
+    margin-top:2rem;
+    padding-top:2rem;
+    border-top:1px solid var(--rule);
+    display:grid; gap:.8rem;
+  }
+  .contact-hours__row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:baseline;
+    gap:1rem;
+  }
+  .contact-hours__row::after{
+    content:"";
+    grid-column:1/3;
+    border-bottom:1px dotted var(--rule);
+    margin-top:-1.05rem;
+    margin-left:7rem;
+    margin-right:5rem;
+    height:0;
+  }
+  .contact-hours__day{
+    font-family:var(--display);
+    font-size:1.05rem;
+    color:var(--ink);
+    background:var(--paper);
+    padding-right:.5rem;
+    position:relative;
+    z-index:1;
+  }
+  .slab--paper-warm .contact-hours__day{ background:var(--paper-warm) }
+  .contact-hours__time{
+    font-family:var(--display);
+    font-size:1.05rem;
+    color:var(--oxblood);
+    background:var(--paper);
+    padding-left:.5rem;
+    position:relative;
+    z-index:1;
+  }
+  .slab--paper-warm .contact-hours__time{ background:var(--paper-warm) }
+  .contact-map{
+    position:relative;
+    aspect-ratio:4/3;
+    border:1px solid var(--rule);
+    overflow:hidden;
+    background:var(--paper-deep);
+  }
+  .contact-map iframe{
+    width:100%; height:100%;
+    border:none;
+    filter:saturate(.78) contrast(1.04);
+  }
+  .contact-map__cap{
+    position:absolute;
+    left:0; bottom:0;
+    background:var(--oxblood);
+    color:var(--paper);
+    font-family:var(--display);
+    padding:.55rem 1rem;
+    font-size:.95rem;
+    letter-spacing:.01em;
+  }
+  .contact-map__cap em{ color:var(--brass); font-style:italic; margin-right:.4rem }
+
+  /* ── GALLERY (placeholder) ── */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:1rem;
+    margin-bottom:2rem;
+  }
+  .gallery-cell{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    aspect-ratio:1/1;
+    position:relative;
+    overflow:hidden;
+  }
+  .slab--paper-warm .gallery-cell{ background:var(--paper) }
+  .gallery-cell::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(45deg,
+        transparent 0 8px,
+        rgba(93,26,30,.06) 8px 9px);
+  }
+  .gallery-cell--wide{ grid-column:span 2 }
+  .gallery-cell--tall{ grid-row:span 2; aspect-ratio:1/2 }
+  .gallery-cell--feature{ grid-column:span 3; grid-row:span 2; aspect-ratio:auto }
+  .gallery-cell__num{
+    position:absolute;
+    top:.7rem; left:.8rem;
+    font-family:var(--display);
+    font-size:.82rem;
+    color:var(--brass-soft);
+    font-style:italic;
+    letter-spacing:.06em;
+  }
+  .gallery-cell__cap{
+    position:absolute;
+    bottom:.6rem; left:.8rem; right:.8rem;
+    font-size:.7rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:500;
+    line-height:1.4;
+  }
+  @media (max-width: 660px){
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr) }
+    .gallery-cell--wide,
+    .gallery-cell--feature{ grid-column:span 2 }
+    .gallery-cell--tall{ grid-row:auto; aspect-ratio:1/1 }
+    .gallery-cell--feature{ grid-row:auto; aspect-ratio:4/3 }
+  }
+  .gallery-note{
+    margin-top:1.5rem;
+    padding-top:2rem;
+    border-top:1px solid var(--rule);
+    display:grid; gap:1.4rem;
+  }
+  @media (min-width: 760px){
+    .gallery-note{ grid-template-columns:auto 1fr; gap:3rem; align-items:start }
+  }
+  .gallery-note__lab{
+    font-size:.72rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--brass-soft);
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .gallery-note__body{
+    font-family:var(--display);
+    font-size:1.25rem;
+    color:var(--ink);
+    line-height:1.4;
+    max-width:60ch;
+  }
+  .gallery-note__body em{ color:var(--oxblood); font-style:italic }
+
+  /* ── FOOTER ── */
+  .foot{
+    position:relative; z-index:2;
+    background:var(--oxblood-deep);
+    color:var(--paper);
+    padding:clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem) 2rem;
+  }
+  .foot__inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; gap:3rem;
+  }
+  @media (min-width: 760px){
+    .foot__inner{ grid-template-columns:1.4fr 1fr 1fr; gap:4rem }
+  }
+  .foot__mark{
+    font-family:var(--display);
+    font-size:clamp(3rem, 7vw, 5rem);
+    color:var(--paper);
+    line-height:.9;
+    letter-spacing:-.02em;
+  }
+  .foot__mark em{
+    display:block;
+    font-style:italic;
+    color:var(--brass);
+    font-size:.32em;
+    margin-top:.5em;
+    letter-spacing:.04em;
+  }
+  .foot__block h4{
+    font-size:.72rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    font-family:var(--sans);
+    margin-bottom:1.2rem;
+  }
+  .foot__block p,
+  .foot__block address{
+    font-style:normal;
+    font-family:var(--display);
+    font-size:1.1rem;
+    line-height:1.5;
+    color:var(--paper);
+  }
+  .foot__block a{
+    color:var(--paper);
+    border-bottom:1px solid var(--brass);
+    transition:color .25s ease;
+  }
+  .foot__block a:hover{ color:var(--brass) }
+  .foot__bar{
+    max-width:1180px; margin:3rem auto 0;
+    padding-top:1.8rem;
+    border-top:1px solid rgba(201,155,62,.3);
+    display:flex; justify-content:space-between; flex-wrap:wrap;
+    gap:1rem;
+    font-size:.74rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:rgba(244,236,216,.6);
+  }
+  .foot__bar em{ font-style:italic; color:var(--brass); letter-spacing:.04em }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<header class="nav">
+  <a class="nav__mark" href="#home">Amy's <em>— Wootton Road</em></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+  <a class="nav__phone" href="tel:+441553766656">01553 766656</a>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero__kicker">
+    <span>Est. on Wootton Road</span>
+    <span class="sep">·</span>
+    <span>King's Lynn, PE30</span>
+    <span class="sep">·</span>
+    <span>Chinese &amp; Thai</span>
+  </div>
+
+  <h1 class="hero__title">
+    Amy's<em>restaurant &amp; take-a-way</em>
+  </h1>
+
+  <div class="hero__row">
+    <p class="hero__lede">
+      <strong>Chinese and Thai dishes,</strong> served from five 'til nine on Wootton Road in King's Lynn. Eat in, take away, or have it brought to your door. Free parking right outside.
+    </p>
+    <dl class="hero__meta">
+      <div class="hero__meta-block">
+        <dt>Tonight</dt>
+        <dd>Open 5pm — 9pm</dd>
+      </div>
+      <div class="hero__meta-block">
+        <dt>To book or order</dt>
+        <dd><a href="tel:+441553766656">01553 766656</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ═══════════════════ MARQUEE ═══════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>
+      <em>Tonight</em>
+      <span class="dot">●</span>
+      Chinese &amp; Thai
+      <span class="dot">●</span>
+      Eat in · Take away · Delivery
+      <span class="dot">●</span>
+      Free parking on Wootton Road
+      <span class="dot">●</span>
+      <em>Open 5 'til 9</em>
+      <span class="dot">●</span>
+      Call 01553 766656
+      <span class="dot">●</span>
+    </span>
+    <span>
+      <em>Tonight</em>
+      <span class="dot">●</span>
+      Chinese &amp; Thai
+      <span class="dot">●</span>
+      Eat in · Take away · Delivery
+      <span class="dot">●</span>
+      Free parking on Wootton Road
+      <span class="dot">●</span>
+      <em>Open 5 'til 9</em>
+      <span class="dot">●</span>
+      Call 01553 766656
+      <span class="dot">●</span>
+    </span>
+  </div>
+</div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="slab slab--paper-warm" id="about">
+  <div class="slab__inner">
+    <header class="section-head reveal">
+      <p class="section-head__label">— Chapter One</p>
+      <h2 class="section-head__title">A neighbourhood <em>restaurant,</em> not a chain.</h2>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-prose reveal">
+        <p>
+          Amy's sits in a quiet stretch of Wootton Road, the kind of King's Lynn address residents direct visitors to with a small note of pride. Inside, the kitchen turns out <strong>Chinese and Thai cooking</strong> the way the regulars want it — generous, steady, the same crisp spring rolls and proper red Thai curry you remember from last visit.
+        </p>
+        <p>
+          It is a small operation. One dining room. A counter for the takeaway crowd. A driver who knows the postcodes. No theatre, no buffet-cliché. Just food cooked for a neighbourhood that has been ordering it for years.
+        </p>
+        <p>
+          We open in the evening only, every day of the week. Walk in for a table, ring ahead for collection, or call the number for delivery. The address is 26–28 Wootton Road — just past the petrol station if you're driving down from the A148.
+        </p>
+      </div>
+
+      <dl class="about-facts reveal">
+        <div class="about-facts__row">
+          <dt>The kitchen</dt>
+          <dd>Chinese &amp; <em>Thai</em></dd>
+        </div>
+        <div class="about-facts__row">
+          <dt>Service hours</dt>
+          <dd>Evenings only · <em>5 'til 9</em></dd>
+        </div>
+        <div class="about-facts__row">
+          <dt>Three ways to eat</dt>
+          <dd>Dine in · Collect · Delivery</dd>
+        </div>
+        <div class="about-facts__row">
+          <dt>Parking</dt>
+          <dd><em>Free</em>, on the road</dd>
+        </div>
+        <div class="about-facts__row">
+          <dt>Payment</dt>
+          <dd>Cash, Visa, Mastercard</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section class="slab slab--oxblood" id="services">
+  <div class="slab__inner">
+    <header class="section-head reveal">
+      <p class="section-head__label">— Chapter Two</p>
+      <h2 class="section-head__title">Four ways we <em>serve.</em></h2>
+    </header>
+
+    <div class="service-list">
+      <article class="service-row reveal">
+        <span class="service-row__num">i.</span>
+        <div class="service-row__body">
+          <h3 class="service-row__name">Dine in <em>— at the table</em></h3>
+          <p class="service-row__copy">A small, calm dining room on Wootton Road. Walk in if there's space; book ahead by phone for the busier nights. Last orders fifteen minutes before close.</p>
+        </div>
+        <p class="service-row__when">Daily · 5 — 9pm</p>
+      </article>
+
+      <article class="service-row reveal">
+        <span class="service-row__num">ii.</span>
+        <div class="service-row__body">
+          <h3 class="service-row__name">Collection <em>— take-a-way</em></h3>
+          <p class="service-row__copy">Phone in your order, give it twenty minutes, walk in and pick it up. The counter is set up for it — most evenings there's no queue.</p>
+        </div>
+        <p class="service-row__when">Phone Ahead</p>
+      </article>
+
+      <article class="service-row reveal">
+        <span class="service-row__num">iii.</span>
+        <div class="service-row__body">
+          <h3 class="service-row__name">Delivery <em>— to your door</em></h3>
+          <p class="service-row__copy">We deliver locally around King's Lynn. Call the restaurant to check we cover your postcode and to place the order. Cash or card on arrival.</p>
+        </div>
+        <p class="service-row__when">Local · Call to Order</p>
+      </article>
+
+      <article class="service-row reveal">
+        <span class="service-row__num">iv.</span>
+        <div class="service-row__body">
+          <h3 class="service-row__name">Buffet evenings <em>— for groups</em></h3>
+          <p class="service-row__copy">For larger tables and birthdays, ask about the buffet sitting. Best to ring a few days in advance so the kitchen can plan the spread.</p>
+        </div>
+        <p class="service-row__when">By Arrangement</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="slab slab--paper-warm" id="contact">
+  <div class="slab__inner">
+    <header class="section-head reveal">
+      <p class="section-head__label">— Chapter Three</p>
+      <h2 class="section-head__title">Find us, ring us, <em>book a table.</em></h2>
+    </header>
+
+    <div class="contact-grid">
+      <div class="contact-letter reveal">
+        <span class="contact-letter__line">
+          <span class="label">Address</span>
+          <address>26 — 28 Wootton Road<br>King's Lynn<br>Norfolk, PE30 4EX</address>
+        </span>
+        <span class="contact-letter__line">
+          <span class="label">Telephone</span>
+          <a href="tel:+441553766656">01553 766656</a>
+        </span>
+        <span class="contact-letter__line">
+          <span class="label">For Reservations</span>
+          Call between 4pm and 9pm. Larger parties — please ring earlier in the day.
+        </span>
+
+        <div class="contact-hours">
+          <div class="contact-hours__row">
+            <span class="contact-hours__day">Monday — Thursday</span>
+            <span class="contact-hours__time">5 — 9pm</span>
+          </div>
+          <div class="contact-hours__row">
+            <span class="contact-hours__day">Friday</span>
+            <span class="contact-hours__time">5 — 9:30pm</span>
+          </div>
+          <div class="contact-hours__row">
+            <span class="contact-hours__day">Saturday</span>
+            <span class="contact-hours__time">5 — 9:30pm</span>
+          </div>
+          <div class="contact-hours__row">
+            <span class="contact-hours__day">Sunday</span>
+            <span class="contact-hours__time">5 — 9pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-map reveal">
+        <iframe
+          src="https://www.google.com/maps?q=26-28+Wootton+Road,+King%27s+Lynn+PE30+4EX&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Amy's Restaurant at 26-28 Wootton Road, King's Lynn PE30 4EX"></iframe>
+        <span class="contact-map__cap"><em>↳</em> PE30 4EX · Wootton Road</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GALLERY (placeholder) ═══════════════════ -->
+<section class="slab slab--cream" id="gallery">
+  <div class="slab__inner">
+    <header class="section-head reveal">
+      <p class="section-head__label">— Chapter Four</p>
+      <h2 class="section-head__title">Photos to <em>follow.</em></h2>
+    </header>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-cell gallery-cell--feature">
+        <span class="gallery-cell__num">no. i</span>
+        <span class="gallery-cell__cap">The dining room · evening service</span>
+      </div>
+      <div class="gallery-cell gallery-cell--tall">
+        <span class="gallery-cell__num">no. ii</span>
+        <span class="gallery-cell__cap">Wok station</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell__num">no. iii</span>
+        <span class="gallery-cell__cap">Starters</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell__num">no. iv</span>
+        <span class="gallery-cell__cap">Thai curry</span>
+      </div>
+      <div class="gallery-cell gallery-cell--wide">
+        <span class="gallery-cell__num">no. v</span>
+        <span class="gallery-cell__cap">Shopfront · 26–28 Wootton Road</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell__num">no. vi</span>
+        <span class="gallery-cell__cap">A regular table</span>
+      </div>
+      <div class="gallery-cell">
+        <span class="gallery-cell__num">no. vii</span>
+        <span class="gallery-cell__cap">Takeaway counter</span>
+      </div>
+    </div>
+
+    <div class="gallery-note reveal">
+      <p class="gallery-note__lab">— Editor's note</p>
+      <p class="gallery-note__body">
+        The gallery is waiting on photographs. Until then, the best way to see Amy's is to <em>come down</em> — Wootton Road, any evening from five.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__mark">
+      Amy's<em>Wootton Road · PE30</em>
+    </div>
+
+    <div class="foot__block">
+      <h4>Restaurant</h4>
+      <address>
+        26 — 28 Wootton Road<br>
+        King's Lynn<br>
+        Norfolk, PE30 4EX
+      </address>
+    </div>
+
+    <div class="foot__block">
+      <h4>To Order</h4>
+      <p>
+        <a href="tel:+441553766656">01553 766656</a><br>
+        Daily · 5pm — 9pm<br>
+        Fri &amp; Sat 'til 9:30pm
+      </p>
+    </div>
+  </div>
+
+  <div class="foot__bar">
+    <span>Amy's Restaurant &amp; Take-a-Way · King's Lynn</span>
+    <span><em>Chinese</em> &amp; <em>Thai</em> · Evenings</span>
+  </div>
+</footer>
+
+</body>
+</html>
